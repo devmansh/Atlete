@@ -1,13 +1,24 @@
 # Atlete
 Atlete complete fully functional ecommerce website built with Python and Django offers ecom facility along with blogs and news.
 
-![](screenshots/SC (1).png)
+![](screenshots/home.png)
+https://github.com/devmansh/Atlete/blob/main/screenshots/SC%20(1).png
 
 ## 📸 Features
 
-![](screenshots/SC (2).png)
+![](screenshots/shop.png)
 
-![](screenshots/SC (3).jpg)
+![](screenshots/product.png)
+
+![](screenshots/blogs.png)
+
+![](screenshots/login.png)
+
+![](screenshots/register.png)
+
+![](screenshots/sale.jpg)
+
+![](screenshots/category.png)
 
 ## Built With 🛠
 - [HTML](https://www.w3schools.com/html/)
@@ -17,7 +28,7 @@ Atlete complete fully functional ecommerce website built with Python and Django 
 - [PYTHON](https://www.python.org/)
 - [DJANGO](https://www.djangoproject.com/) 
   
-- [Backend]
+## Backend 🛠
   - [PYTHON](https://www.python.org/)
   - [DJANGO](https://www.djangoproject.com/)
   
