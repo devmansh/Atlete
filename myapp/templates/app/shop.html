@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-center">
+          <div class="breadcrumb-text">
+            <p>ATLETE A Brand of Pratap &amp; Sons</p>
+            <h1>Shop</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-5">
+    <div class="row">
+     <div class="col-sm-3">
+      <div class="list-group">
+        <a href="{% url 'shop' %}" class="list-group-item list-group-item-action" aria-current="true">All Products</a>
+        <a href="{% url 'shopdata' 'lowers'  %}" class="list-group-item list-group-item-action" aria-current="true">Lowers</a>
+        <a href="{% url 'shopdata' 'tshirts'  %}" class="list-group-item list-group-item-action">T-Shirts</a>
+        <a href="{% url 'shopdata' 'shoes'  %}" class="list-group-item list-group-item-action">Shoes</a>
+        <a href="{% url 'shopdata' 'runningkits'  %}" class="list-group-item list-group-item-action">Running Kits</a>
+      </div>
+     </div>
+     <div class="col-sm-8">
+      <div class="row">
+       {% for product in shop %}
+        <div class="col-sm-4 text-center mb-4">
+         <a href="{% url 'product-detail' product.id %}" class="btn">
+          <div class="item">
+           <img src="{{product.product_image.url}}" alt="" height="300" class="">
+           <div class="fw-bold">{{product.title}}</div>
+           <div class="fw-bold">Rs. {{product.discounted_price}} <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></div>
+          </div>
+         </a>
+        </div>
+       {% endfor %}
+      </div>
+     </div>
+    </div>
+   </div>
+   {% endblock main-content %}

@@ -1,0 +1,256 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+ <!-- home page slider -->
+ <div class="homepage-slider">
+  <!-- single home slider -->
+  <div class="single-homepage-slider homepage-bg-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1 text-center">
+          <div class="hero-text">
+            <div class="hero-text-tablecell">
+              <p class="subtitle">Atlete</p>
+              <h1>100% Cotton Collection</h1>
+              <div class="hero-btns">
+                <a href="{% url 'shop' %}" class="boxed-btn">Shop Now</a>
+                <a href="{% url 'contact' %}" class="bordered-btn">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- single home slider -->
+  <div class="single-homepage-slider homepage-bg-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1 offset-xl-1">
+          <div class="hero-text">
+            <div class="hero-text-tablecell">
+              <p class="subtitle">Heavy Discount on New Products</p>
+              <h1>Limited Period Offer!</h1>
+              <div class="hero-btns">
+                <a href="#sale" class="boxed-btn">Grab Deal</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- single home slider -->
+  <div class="single-homepage-slider homepage-bg-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1 text-right">
+          <div class="hero-text">
+            <div class="hero-text-tablecell">
+              <p class="subtitle">Good Quality Product</p>
+              <h1>Products that gives more comfort</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end home page slider -->
+{% endblock banner_slider %}
+
+
+{% block main-content %}
+<!-- 1st Product Slider -->
+<div class="m-2">
+ <h2 style="text-align:center; color:#F28123;">Bottom Wears</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+  {% for b in bottomwears %}
+    <a href="{% url 'product-detail' b.id %}" class="btn"><div class="item"><img src="{{b.product_image.url}}" alt="" height="300px"><span class="fw-bold">{{b.title}}</span><br><span class="fs-5">Rs. {{b.discounted_price}}</span></div></a>
+  {% endfor %}
+ </div>
+</div>
+<!-- End 1st Product Slider -->
+
+{% block livesale %}
+<!-- Live Sale Section -->
+<div class="container">
+  <div class="row bg-danger text-center p-5 text-white border-bottom shadow">
+    <h1>SALE IS LIVE NOW</h1>
+    <span>5% Instant Discount on Credit and Debit Card</span>
+    <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small>
+  </div>
+</div> 
+<!-- End Live Sale Section -->
+
+<!-- cart banner section -->
+<section class="cart-banner pt-50 pb-50">
+  <div class="container">
+      <div class="row clearfix">
+          <!--Image Column-->
+          <div class="image-column col-lg-6">
+              <div class="image">
+                  <div class="price-box">
+                      <div class="inner-price">
+                            <span class="price">
+                                <strong>30%</strong> <br> off
+                            </span>
+                        </div>
+                    </div>
+                  <img src="{%static 'assets/img/a.jpg'%}" alt="">
+                </div>
+            </div>
+            <!--Content Column-->
+            <div class="content-column col-lg-6">
+      <h3><span class="orange-text">Deal</span> of the month</h3>
+                <h4>ATLETE Lower</h4>
+                <div class="text">High fabric, good quality at low price.</div>
+                <!--Countdown Timer-->
+                <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2021/2/01"><div class="counter-column"><div class="inner"><span class="count">5</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">6</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">14</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">53</span>Secs</div></div></div></div>
+              <a href="#" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end cart banner section -->
+
+{% endblock livesale %}
+
+<!-- Payment Info Section -->
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+     <img src="{% static 'app/images/payavail/cc.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/upi.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/nb.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/bj.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+ </div>
+</div>
+<!-- End Payment Info Section -->
+
+<!-- 2nd Product Slider -->
+<div class="mx-3">
+ <h2 style="text-align:center; color:#F28123;">Top Wears</h2>
+ <!-- Slider 2 -->
+ <div class="owl-carousel" id="slider2">
+  {% for tp in topwears %}
+    <a href="{% url 'product-detail' tp.id %}" class="btn"><div class="item"><img src="{{tp.product_image.url}}" alt="" height="300"><span class="fw-bold">{{tp.title}}</span><br><span class="fs-5">Rs. {{tp.discounted_price}}</span></div></a>
+  {% endfor %}
+ </div>
+</div>
+<!-- End 2nd Product Slider -->
+
+<!-- 3rd Product Slider -->
+<div class="mx-3">
+ <h2 style="text-align:center; color:#F28123;">Shoes</h2>
+ <!-- Slider 3 -->
+ <div class="owl-carousel" id="slider3">
+  {% for s in shoes %}
+    <a href="{% url 'product-detail' s.id %}" class="btn"><div class="item"><img src="{{s.product_image.url}}" alt="" height="300"><span class="fw-bold">{{s.title}}</span><br><span class="fs-5">Rs. {{s.discounted_price}}</span></div></a>
+  {% endfor %}
+ </div>
+</div>
+<!-- End 2nd Product Slider -->
+
+
+<!-- shop banner -->
+<section class="shop-banner" id="sale">
+  <div class="container">
+      <h3 style="color:white">December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
+        <div class="sale-percent"><span style="color:white">Sale! <br> Upto</span>50% <span style="color:white">off</span></div>
+        <a href="{% url 'shop' %}" class="cart-btn btn-lg">Shop Now</a>
+    </div>
+</section>
+<!-- end shop banner -->
+
+<div class="abt-section mb-80 mt-80">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="abt-bg">
+          <a href="https://www.youtube.com/watch?v=GolsB8vS0oQ" class="video-play-btn popup-youtube"><i class="fas fa-play"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="abt-text">
+          <p class="top-sub">Since Year 2022</p>
+          <h2>We are <span class="orange-text">Pratap &amp; Sons</span></h2>
+          <p>Atlete is clothin brand of Pratap &amp; Sons registered in 2022 which provide wide range of best and powerful sports solutions.</p>
+          <p>"We are Pratap &amp; Sons, offers wide range of sports wear and good that are made up of high quality material that matches an athlete need. we ensure to deliver high quality products to our customers that will last longer."</p>
+          <a href="about.html" class="boxed-btn mt-4">know more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- latest news -->
+<div class="latest-news pt-50 pb-80" id="blogs">
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+      <div class="section-title">	
+        <h3><span class="orange-text">Our</span> News/Blogs</h3>
+        <p>Here are the some important blogs and news regarding sports.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    {% for blog in blogs %}
+    <div class="col-lg-4 col-md-6">
+      <div class="single-latest-news">
+        <a class="btn"><div class="latest-news-bg"><img src="{{blog.img.url}}" alt="" height="200px" width="400px"></div></a>
+        <div class="news-text-box">
+          <h3><a href="/blog/{{blog.id}}">{{blog.title}}</a></h3>
+          <p class="blog-meta">
+            <span class="author"><i class="fas fa-user"></i>&nbsp;Admin</span>
+            <span class="date"><i class="fas fa-calendar"></i>&nbsp;{{blog.date_created}}</span>
+          </p>
+          <p class="excerpt">{{blog.content|truncatewords:20}}</p>
+          <a href="/blog/{{blog.id}}" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <a href="#" class="boxed-btn">More News</a>
+    </div>
+  </div>
+</div>
+</div>
+<!-- end latest news -->
+
+
+{% endblock main-content %}
+
