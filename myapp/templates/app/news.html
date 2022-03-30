@@ -6,24 +6,10 @@
 
     <div class="breadcrumb-section breadcrumb-bg">
         <div class="container">
-        <div class="row">
-                <div class="col-md-3 text-center">
-                    <div class="breadcrumb-text">
-                        <p>Search by Country's Code</p>
-                        <form action ="" method="get">
-                            <input type="text" name="country">
-                            <button type="submit" value="Search">Search</button>
-                        </form>
-                        <center>Countries list:</center>
-                        <a class="btn btn-info" href="{% url 'news' %}?country=in">India - in</a>
-                        <a class="btn btn-success" href="{% url 'news' %}?country=us">US - us</a>
-                        <a class="btn btn-primary" href="{% url 'news' %}?country=ch">China - ch</a>
-                        <a class="btn btn-danger" href="{% url 'news' %}?country=cn">Canada - cn</a>
-                        <a class="btn btn-danger" href="{% url 'news' %}?country=jp">Japan - jp</a>
-                    </div>
-                </div>
+            <div class="row">
+                
 
-                <div class="col-lg-6 text-center">
+                <div class="col-lg-12 text-center">
                     <div class="breadcrumb-text">
                         <p>ATLETE A Brand of Pratap &amp; Sons</p>
                         <h1>NEWS</h1><hr>
@@ -31,21 +17,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 text-center">
-                    <div class="breadcrumb-text">
-                            <p>Search by Category</p>
-                        <form action ="" method="get">
-                            <input type="text" name="category">
-                            <button type="submit" value="Search">Search</button>
-                        </form>
-                        <center>Categories list:</center>
-                        <a class="btn btn-info" href="{% url 'news' %}?category=sports">Sports</a>
-                        <a class="btn btn-success" href="{% url 'news' %}?category=business">Business</a>
-                        <a class="btn btn-primary" href="{% url 'news' %}?category=technology">Technology</a>
-                        <a class="btn btn-danger" href="{% url 'news' %}?category=entertainment">Entertainment</a>
-                        <a class="btn btn-danger" href="{% url 'news' %}?category=health">Health</a>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
