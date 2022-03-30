@@ -1,0 +1,82 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}NEWS{% endblock title %}
+{% block main-content %}
+
+
+    <div class="breadcrumb-section breadcrumb-bg">
+        <div class="container">
+        <div class="row">
+                <div class="col-md-3 text-center">
+                    <div class="breadcrumb-text">
+                        <p>Search by Country's Code</p>
+                        <form action ="" method="get">
+                            <input type="text" name="country">
+                            <button type="submit" value="Search">Search</button>
+                        </form>
+                        <center>Countries list:</center>
+                        <a class="btn btn-info" href="{% url 'news' %}?country=in">India - in</a>
+                        <a class="btn btn-success" href="{% url 'news' %}?country=us">US - us</a>
+                        <a class="btn btn-primary" href="{% url 'news' %}?country=ch">China - ch</a>
+                        <a class="btn btn-danger" href="{% url 'news' %}?country=cn">Canada - cn</a>
+                        <a class="btn btn-danger" href="{% url 'news' %}?country=jp">Japan - jp</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 text-center">
+                    <div class="breadcrumb-text">
+                        <p>ATLETE A Brand of Pratap &amp; Sons</p>
+                        <h1>NEWS</h1><hr>
+                        <a class="btn btn-info" href="{% url 'news' %}?country=in&category=sports">More countries ISO Code: ae, ar, at, au, be, bg, br, ca, ch, cn, co, cu, cz, de, eg, fr, gb, gr, hk, hu, id, ie, il, in, it, jp, kr, lt, lv, ma, mx, my, ng, nl, no...</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 text-center">
+                    <div class="breadcrumb-text">
+                            <p>Search by Category</p>
+                        <form action ="" method="get">
+                            <input type="text" name="category">
+                            <button type="submit" value="Search">Search</button>
+                        </form>
+                        <center>Categories list:</center>
+                        <a class="btn btn-info" href="{% url 'news' %}?category=sports">Sports</a>
+                        <a class="btn btn-success" href="{% url 'news' %}?category=business">Business</a>
+                        <a class="btn btn-primary" href="{% url 'news' %}?category=technology">Technology</a>
+                        <a class="btn btn-danger" href="{% url 'news' %}?category=entertainment">Entertainment</a>
+                        <a class="btn btn-danger" href="{% url 'news' %}?category=health">Health</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+  <div class="row">
+    {% for blog in articles %}
+        <div class="col-lg-4 col-md-6">
+            <div class="single-latest-news">
+                <a class="btn"><div class="latest-news-bg"><img src="{{blog.urlToImage}}" alt="" height="220px" width="500px"></div></a>
+                <div class="news-text-box">
+                <h3><a href="{{ blog.url }}" target="_blank">{{blog.title | truncatewords:12}}</a></h3>
+                <p class="blog-meta">
+                    <span class="author"><i class="fas fa-user"></i>&nbsp;Author: {{ blog.author }}</span>
+                    <span class="date"><i class="fas fa-calendar"></i>&nbsp;Date: {{blog.publishedAt}}</span>
+                </p>
+                <p class="excerpt">{{blog.description|truncatewords:18}}</p>
+                <a href="{{ blog.url }}" target="_blank" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+  </div>
+
+
+
+
+
+
+
+
+
+{% endblock main-content %}

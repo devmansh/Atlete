@@ -9,14 +9,16 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 import requests
 
+API_KEY = 'f1e9a926ed2744c6892dc6bd49b69a89'
+
 class ProductView(View):
 	def get(self, request):
 		totalitem = 0
 		topwears = Product.objects.filter(category='TW')
 		bottomwears = Product.objects.filter(category='BW')
-		
 		shoes = Product.objects.filter(category='S')
 		blogs = Blogs.objects.all()
+
 		if request.user.is_authenticated:
 			totalitem = len(Cart.objects.filter(user=request.user))
 		return render(request, 'app/home.html', {'topwears':topwears, 'bottomwears':bottomwears, 'shoes':shoes, 'totalitem':totalitem, 'blogs': blogs})
@@ -272,6 +274,7 @@ def contact(request):
 def blog(request, pk):
     Blog = Blogs.objects.get(id=pk)
     return render(request, 'app/blog.html', {'blog': Blog})
+
 
 
 def news(request):
